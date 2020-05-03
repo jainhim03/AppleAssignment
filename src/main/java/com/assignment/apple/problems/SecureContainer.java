@@ -46,11 +46,9 @@ public class SecureContainer {
                 incrementFlag = false;
             }
         }
-        Map<Character, Long> occurrences = Integer.toString(val).chars()
+        Map<Character, Long> sequences = Integer.toString(val).chars()
                 .mapToObj(c -> (char) c).collect(Collectors.groupingBy(c -> c, Collectors.counting()));
-
-        boolean hasAdj = occurrences.entrySet().stream().anyMatch(entry -> entry.getValue() > 1L);
-        return incrementFlag && hasAdj;
+        return incrementFlag && sequences.entrySet().stream().anyMatch(entry -> entry.getValue() > 1L);
     }
 
     private boolean isValidInput(String input) {
