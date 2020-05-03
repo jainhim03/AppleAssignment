@@ -1,4 +1,4 @@
-package com.assignment.apple;
+package com.assignment.apple.problems;
 
 import com.assignment.apple.exception.InputValidationException;
 
@@ -50,7 +50,7 @@ public class SecureContainer {
                 .mapToObj(c -> (char) c).collect(Collectors.groupingBy(c -> c, Collectors.counting()));
 
         boolean hasAdj = occurrences.entrySet().stream().anyMatch(entry -> entry.getValue() > 1L);
-        return incrementFlag && hasAdj && occurrences.containsValue(2L);
+        return incrementFlag && hasAdj;
     }
 
     private boolean isValidInput(String input) {

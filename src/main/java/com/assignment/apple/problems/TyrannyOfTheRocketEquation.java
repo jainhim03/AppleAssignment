@@ -1,4 +1,4 @@
-package com.assignment.apple;
+package com.assignment.apple.problems;
 
 import com.assignment.apple.exception.InputValidationException;
 

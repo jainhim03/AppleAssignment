@@ -1,6 +1,7 @@
 package com.assignment.apple;
 
 import com.assignment.apple.exception.InputValidationException;
+import com.assignment.apple.problems.TyrannyOfTheRocketEquation;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

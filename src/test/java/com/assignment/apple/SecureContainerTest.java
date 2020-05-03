@@ -1,6 +1,7 @@
 package com.assignment.apple;
 
 import com.assignment.apple.exception.InputValidationException;
+import com.assignment.apple.problems.SecureContainer;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -47,12 +48,5 @@ public class SecureContainerTest {
         String actualMessage = exception.getMessage();
         assertTrue(actualMessage.contains(expectedMessage));
     }
-
-    @Test
-    public void validatePasswordSuccess() throws InputValidationException {
-        secureContainer = new SecureContainer(SAMPLE_INPUT);
-        Assert.assertTrue(secureContainer.validatePassword(1111));
-    }
-
 
 }
