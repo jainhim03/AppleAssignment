@@ -20,9 +20,28 @@ public class TyrannyOfTheRocketEquationTest {
     private TyrannyOfTheRocketEquation tyrannyOfTheRocketEquation;
 
     @Test
-    public void getFuelRequirementOnSuccess() throws InputValidationException {
+    public void getFuelRequirementOnSuccessInput100756() throws InputValidationException {
         tyrannyOfTheRocketEquation = new TyrannyOfTheRocketEquation(SAMPLE_INPUT);
         Assert.assertEquals(EXPECTED_OUTPUT, tyrannyOfTheRocketEquation.getFuelRequirement());
+    }
+
+    @Test
+    public void getFuelRequirementOnSuccessInput12() throws InputValidationException {
+        tyrannyOfTheRocketEquation = new TyrannyOfTheRocketEquation("12");
+        Assert.assertEquals("2", tyrannyOfTheRocketEquation.getFuelRequirement());
+    }
+
+    @Test
+    public void getFuelRequirementOnSuccessInput14() throws InputValidationException {
+        tyrannyOfTheRocketEquation = new TyrannyOfTheRocketEquation("12");
+        Assert.assertEquals("2", tyrannyOfTheRocketEquation.getFuelRequirement());
+    }
+
+
+    @Test
+    public void getFuelRequirementOnSuccessInput1969() throws InputValidationException {
+        tyrannyOfTheRocketEquation = new TyrannyOfTheRocketEquation("1969");
+        Assert.assertEquals("654", tyrannyOfTheRocketEquation.getFuelRequirement());
     }
 
     @Test
