@@ -13,8 +13,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @RunWith(SpringRunner.class)
 public class SecureContainerTest {
 
-    public static final String EXPECTED_OUTPUT = "1258";
-    public static final String SAMPLE_INPUT = "137683-596253";
+    public static final String EXPECTED_OUTPUT = "2835";
+    public static final String SAMPLE_INPUT = "111111-600000";
     public static final String SAMPLE_STRING_INPUT = "abcd";
 
     private SecureContainer secureContainer;
@@ -23,6 +23,18 @@ public class SecureContainerTest {
     public void getNumberOfPasswordInRangeOnSuccess() throws InputValidationException {
         secureContainer = new SecureContainer(SAMPLE_INPUT);
         Assert.assertEquals(EXPECTED_OUTPUT, secureContainer.getNumberOfPasswordInRange());
+    }
+
+    @Test
+    public void getNumberOfPasswordInRangeOnSuccessInputShortRange() throws InputValidationException {
+        secureContainer = new SecureContainer("000000-000011");
+        Assert.assertEquals("1", secureContainer.getNumberOfPasswordInRange());
+    }
+
+    @Test
+    public void getNumberOfPasswordInRangeOnSuccessInputNoRange() throws InputValidationException {
+        secureContainer = new SecureContainer("000000-000000");
+        Assert.assertEquals("0", secureContainer.getNumberOfPasswordInRange());
     }
 
     @Test
