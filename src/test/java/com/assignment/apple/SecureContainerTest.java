@@ -61,4 +61,21 @@ public class SecureContainerTest {
         assertTrue(actualMessage.contains(expectedMessage));
     }
 
+    @Test
+    public void validatePasswordOnSuccess() throws InputValidationException {
+        secureContainer = new SecureContainer(SAMPLE_INPUT);
+        Assert.assertTrue(secureContainer.validatePassword(111111));
+    }
+
+    @Test
+    public void validatePasswordOnFailure() throws InputValidationException {
+        secureContainer = new SecureContainer(SAMPLE_INPUT);
+        Assert.assertFalse(secureContainer.validatePassword(223450));
+    }
+
+    @Test
+    public void validatePasswordOnFailure1() throws InputValidationException {
+        secureContainer = new SecureContainer(SAMPLE_INPUT);
+        Assert.assertFalse(secureContainer.validatePassword(123789));
+    }
 }

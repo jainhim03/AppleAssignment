@@ -3,6 +3,7 @@ package com.assignment.apple.problems;
 import com.assignment.apple.exception.InputValidationException;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -40,14 +41,18 @@ public class SecureContainer {
 
     public boolean validatePassword(int val) {
         char[] chars = Integer.toString(val).toCharArray();
+        Map<Character, Long> sequences = new HashMap<>();
         boolean incrementFlag = true;
         for (int i = 0; i < chars.length - 1; i++) {
             if (!(chars[i] <= chars[i + 1])) {
                 incrementFlag = false;
             }
         }
-        Map<Character, Long> sequences = Integer.toString(val).chars()
-                .mapToObj(c -> (char) c).collect(Collectors.groupingBy(c -> c, Collectors.counting()));
+
+        sequences = Integer.toString(val)
+                .chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
         return incrementFlag && sequences.entrySet().stream().anyMatch(entry -> entry.getValue() > 1L);
     }
 
