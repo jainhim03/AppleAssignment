@@ -1,2 +1,2 @@
 # AppleAssignment
-Assignment for Apple Submission
+Use command "mvn clean install" to run the application which will run all the test cases.
